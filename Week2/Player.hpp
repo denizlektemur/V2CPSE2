@@ -1,33 +1,23 @@
-#ifndef _PLAYER_HPP
-#define _PLAYER_HPP
+#pragma once
 
-#include <SFML/Graphics.hpp>
+#include "drawable.hpp"
 
-class player {
+class player : public drawable {
+private:
+	sf::RenderWindow & window;
+	sf::RectangleShape rect;
+	sf::Vector2f location;
+	sf::Vector2f size;
+	const char * name;
 public:
-
-	player(sf::Vector2f position, sf::Vector2f size = sf::Vector2f{ 100, 100 });
-
-	void draw(sf::RenderWindow & window);
-
+	player(const char * name, sf::RenderWindow & window, sf::Vector2f location, sf::Vector2f = sf::Vector2f{ 400, 20 });
+	void draw() override;
+	void update() override;
+	const char * getName() override;
+	sf::Vector2f getLocation() override;
+	sf::Vector2f getSize() override;
 	void move(sf::Vector2f delta);
-
 	void jump(sf::Vector2f target);
 	void jump(sf::Vector2i target);
-
-	sf::FloatRect getTopHitbox();
-	sf::FloatRect getBottomHitbox();
-	sf::FloatRect getLeftHitbox();
-	sf::FloatRect getRightHitbox();
-
-	float getTop();
-	float getBottom();
-	float getLeft();
-	float getRight();
-
-private:
-	sf::RectangleShape rectangle;
-	sf::Vector2f position;
-	sf::Vector2f size;
+	sf::FloatRect getHitbox() override;
 };
-#endif

@@ -1,17 +1,22 @@
-#ifndef _WALL_HPP
-#define _WALL_HPP
+#pragma once
 
-#include <SFML/Graphics.hpp>
+#include "SFML/Graphics.hpp"
+#include "drawable.hpp"
 
-class wall {
-public:
-	wall(sf::Vector2f position, sf::Vector2f size = sf::Vector2f{ 100, 20 });
-
-	void draw(sf::RenderWindow & window) const;
-	sf::FloatRect getHitbox();
+class wall : public drawable {
 private:
-	sf::RectangleShape rectangle;
-	sf::Vector2f position;
+	sf::RenderWindow & window;
+	sf::Vector2f location;
 	sf::Vector2f size;
+	sf::RectangleShape rect;
+	const char * name;
+public:
+	wall(const char * name, sf::RenderWindow & window, sf::Vector2f location, sf::Vector2f size);
+	void draw() override;
+	void update() override;
+	sf::Vector2f getLocation() override;
+	sf::Vector2f getSize() override;
+	const char * getName() override;
+	sf::FloatRect getHitbox() override;
 };
-#endif
+
