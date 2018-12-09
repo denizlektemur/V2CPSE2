@@ -1,0 +1,4 @@
+(69,265) PICTURE pipe.png (250,460)
+(344,277) PICTURE yoshi.png (250,250)
+(-51,-40) CIRCLE blue 100
+(201,-8) RECTANGLE red (200,100)
