@@ -10,7 +10,7 @@ public:
 	unknown_color() :
 		s("unknown color[]")
 	{}
-	const char * what() const override {
+	const char * what() const noexcept override {
 		return s.c_str();
 	}
 private:
@@ -30,7 +30,7 @@ public:
 		s("unknown shape []")
 	{}
 
-	const char * what() const override {
+	const char * what() const noexcept override {
 		return s.c_str();
 	}
 private:
@@ -42,7 +42,7 @@ public:
 	invalid_position(const char & c) :
 		s{ std::string{ "unknown position [" } +c + "]" }
 	{}
-	const char * what() const override {
+	const char * what() const noexcept override {
 		return s.c_str();
 	}
 private:
