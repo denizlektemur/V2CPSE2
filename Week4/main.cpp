@@ -44,10 +44,7 @@ int main() {
 
 	/* Opdracht 7 */
 	std::sort(count_array.begin(), count_array.end(), [](std::array<int, 2> & lhs, std::array<int, 2> & rhs) {
-		if (lhs[0] != rhs[0]) {
-			return lhs[0] < rhs[0];
-		}
-		return lhs[1] < rhs[1];
+		return lhs[0] < rhs[0];
 	});
 
 	std::cout << "\nSorted by key: \n";
@@ -59,10 +56,7 @@ int main() {
 	std::cout << "\nSorted by value: \n";
 
 	std::sort(count_array.begin(), count_array.end(), [](std::array<int, 2> & lhs, std::array<int, 2> & rhs) {
-		if (lhs[1] != rhs[1]) {
-			return lhs[1] < rhs[1];
-		}
-		return lhs[0] < rhs[0];
+		return lhs[1] < rhs[1];
 	});
 
 	for (unsigned int i = 0; i < count_array.size(); i++) {
